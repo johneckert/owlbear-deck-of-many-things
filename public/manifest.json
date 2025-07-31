@@ -1,9 +1,9 @@
 {
-  "name": "Hello, World!",
+  "name": "Deck of Many Things",
   "version": "1.0.0",
   "manifest_version": 1,
   "action": {
-    "title": "Hello, World!",
+    "title": "Deck of Many Things",
     "icon": "/icon.svg",
     "popover": "/",
     "height": 600,
