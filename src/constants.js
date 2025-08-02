@@ -1,0 +1,40 @@
+export const fullDeck = [
+      'Vizier', 
+      'Sun', 
+      'Moon', 
+      'Star', 
+      'Comet', 
+      'The Fates', 
+      'Throne', 
+      'Key', 
+      'Knight', 
+      'Gem', 
+      'Talons', 
+      'The Void', 
+      'Flames', 
+      'Skull', 
+      'Idiot', 
+      'Donjon', 
+      'Ruin', 
+      'Euryale', 
+      'Rogue', 
+      'Balance', 
+      'The Fool', 
+      'Jester'
+    ];
+
+    export const partialDeck = [
+      'Sun', 
+      'Moon', 
+      'Star', 
+      'Throne', 
+      'Key', 
+      'Knight', 
+      'The Void', 
+      'Flames', 
+      'Skull', 
+      'Ruin', 
+      'Euryale', 
+      'Rogue', 
+      'Jester'
+    ];

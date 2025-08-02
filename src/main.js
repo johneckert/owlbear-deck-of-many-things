@@ -1,24 +1,33 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import { Deck } from './deck.js'
+
+const deck = new Deck();
+console.log(deck.length);
+console.log(deck.drawCard());
+console.log(deck.length);
+console.log(deck.cards[0].name);
+console.log(deck.shuffle());
+console.log(deck.length);
+console.log(deck.cards[0].name);
+console.log(deck.length);
+console.log(deck.reset());
+console.log(deck.length);
+
+
 
 document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
+  <div id="main-container">
+    <div class="section-container">
+      <img id="card-deck" src="/images/card-back.png"/>
+      <div class="landing-zone"></div>
+      <div class="landing-zone"></div>
+      <div class="landing-zone"></div>
     </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
+    <div class="button-container">
+      <button id="draw-card" onClick="drawCard()">Draw Card</button>
+      <button id="shuffle-deck" onClick="shuffleDeck()">Shuffle Deck</button>
+      <button id="reset-deck" onClick="resetDeck()">Reset Deck</button>
+    </div>
   </div>
 `
 
-setupCounter(document.querySelector('#counter'))
