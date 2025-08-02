@@ -2,17 +2,41 @@ import './style.css'
 import { Deck } from './deck.js'
 
 const deck = new Deck();
-console.log(deck.length);
-console.log(deck.drawCard());
-console.log(deck.length);
-console.log(deck.cards[0].name);
-console.log(deck.shuffle());
-console.log(deck.length);
-console.log(deck.cards[0].name);
-console.log(deck.length);
-console.log(deck.reset());
-console.log(deck.length);
+let cardsDrawn = 0;
 
+function drawCard(event) {
+  event.preventDefault();
+  const card = deck.drawCard();
+  if (card && cardsDrawn < 3) {
+    console.log(card);
+    const landingZones = document.querySelectorAll('.landing-zone');
+    const img = document.createElement('img');
+    img.src = card.img;
+    img.alt = card.name;
+    landingZones[cardsDrawn].appendChild(img);
+    cardsDrawn++;
+  }
+  if (cardsDrawn >= 3) {
+    document.querySelector('#draw-card').disabled = true;
+    console.log('No more cards can be drawn.');
+  }
+}
+
+function shuffleDeck() {
+  deck.shuffle();
+  console.log('Deck shuffled.');
+}
+
+function resetDeck() {
+  deck.reset();
+  console.log('Deck reset.');
+  document.querySelector('#card-deck').src = '/images/card-back.png';
+  document.querySelector('#draw-card').disabled = false;
+  cardsDrawn = 0;
+  document.querySelectorAll('.landing-zone').forEach(zone => {
+    zone.innerHTML = ''; // Clear landing zones
+  });
+}
 
 
 document.querySelector('#app').innerHTML = `
@@ -24,10 +48,13 @@ document.querySelector('#app').innerHTML = `
       <div class="landing-zone"></div>
     </div>
     <div class="button-container">
-      <button id="draw-card" onClick="drawCard()">Draw Card</button>
-      <button id="shuffle-deck" onClick="shuffleDeck()">Shuffle Deck</button>
-      <button id="reset-deck" onClick="resetDeck()">Reset Deck</button>
+      <button id="draw-card">Draw Card</button>
+      <button id="shuffle-deck">Shuffle Deck</button>
+      <button id="reset-deck">Reset Deck</button>
     </div>
   </div>
 `
 
+document.querySelector('#draw-card').addEventListener('click', drawCard);
+document.querySelector('#shuffle-deck').addEventListener('click', shuffleDeck);
+document.querySelector('#reset-deck').addEventListener('click', resetDeck);

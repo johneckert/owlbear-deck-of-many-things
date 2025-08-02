@@ -5,7 +5,7 @@ class Card {
   constructor(name) {
     this.id = _.uniqueId('card-');
     this.name = name;
-    this.img = `images/${name.toLowerCase().replace(/\s+/g, '-')}.png`;
+    this.img = `images/cards/${name.toLowerCase().replace(/\s+/g, '-')}.png`;
   }
 
 
